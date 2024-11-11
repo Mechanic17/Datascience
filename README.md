@@ -1,82 +1,82 @@
-# Datascience
-# Анализ данных о продажах товаров в онлайн-ритейле
+# Data Science
+# Sales Data Analysis for Online Retail
 
-## Описание проекта
+## Project Description
 
-Этот проект представляет собой анализ данных о продажах товаров в онлайн-ритейле. Данные включают информацию о товарах, датах продаж, клиентах, количестве и стоимости товаров. Основная цель анализа – изучить зависимости между переменными, выявить возможные аномалии, провести визуализацию данных и предложить инсайты для бизнеса.
+This project is an analysis of sales data from an online retail business. The data includes information about products, sales dates, customers, quantities, and product prices. The main goal of this analysis is to explore relationships between variables, identify potential anomalies, visualize the data, and provide business insights.
 
-## Основные этапы анализа
+## Main Analysis Stages
 
-### 1. Загрузка и предварительная обработка данных
-Мы загрузили данные из исходного файла и выполнили их предварительную обработку:
-- Удалили дубликаты записей и обработали пропущенные значения.
-- Привели числовые данные к корректным типам, чтобы избежать ошибок в дальнейших вычислениях.
-- Добавили новый столбец `TotalPrice`, рассчитывающий общую стоимость каждого заказа на основе количества (`Quantity`) и цены за единицу товара (`UnitPrice`).
+### 1. Data Loading and Preprocessing
+We loaded data from the original file and performed preprocessing steps:
+- Removed duplicate records and handled missing values.
+- Converted numerical data to appropriate types to avoid errors in further calculations.
+- Added a new column, `TotalPrice`, to calculate the total value of each order based on the quantity (`Quantity`) and unit price (`UnitPrice`).
 
-### 2. Анализ данных
-#### Статистическое описание
-Мы получили основные статистические характеристики данных, такие как средние значения, минимальные и максимальные значения, стандартные отклонения и квартильные значения для числовых столбцов (`Quantity`, `UnitPrice`, `TotalPrice`).
+### 2. Data Analysis
+#### Statistical Description
+We generated key statistical metrics for the data, such as averages, minimum and maximum values, standard deviations, and quartiles for numeric columns (`Quantity`, `UnitPrice`, `TotalPrice`).
 
-#### Проверка пропусков и аномалий
-Провели анализ на наличие пропущенных значений и выбросов (например, отрицательные значения в `Quantity` и `UnitPrice`), которые могли бы исказить результаты анализа.
+#### Checking for Missing Values and Anomalies
+We analyzed the data for missing values and outliers (e.g., negative values in `Quantity` and `UnitPrice`), which could skew the results of the analysis.
 
-### 3. Исследование зависимостей между переменными
-#### Корреляционный анализ
-Построили корреляционную матрицу количественных признаков, которая выявила сильную положительную корреляцию между `Quantity` и `TotalPrice`. Эта зависимость логична, так как общая сумма заказа (`TotalPrice`) зависит от количества проданных товаров. В то же время корреляция между `UnitPrice` и другими признаками значительно слабее, что может указывать на отсутствие связи между ценой товара и его количеством.
+### 3. Investigating Relationships Between Variables
+#### Correlation Analysis
+We created a correlation matrix for quantitative features, which revealed a strong positive correlation between `Quantity` and `TotalPrice`. This relationship makes sense, as the total order amount (`TotalPrice`) depends on the quantity of products sold. Meanwhile, the correlation between `UnitPrice` and other features is significantly weaker, suggesting a lack of association between product price and quantity.
 
-#### Анализ изменения цены на единицу товара
-Для товаров с одинаковым `StockCode` мы проанализировали динамику изменения цены с течением времени, что помогло выявить колебания цен. Это может указывать на сезонные скидки, изменения ценовой политики или акции.
+#### Analysis of Unit Price Changes for Individual Products
+For items with the same `StockCode`, we analyzed the time-based dynamics of price changes, which helped us identify price fluctuations. These may indicate seasonal discounts, price policy changes, or promotional activities.
 
-### 4. Репрезентативная выборка для визуализации и работы в KNIME
-Была выбрана репрезентативная подвыборка данных для упрощенной визуализации и дальнейшего анализа в инструменте KNIME.
+### 4. Representative Sample for Visualization and KNIME Analysis
+A representative subset of data was selected to facilitate simplified visualization and further analysis in the KNIME tool.
 
-## Визуализация данных
+## Data Visualization
 
-Мы создали несколько ключевых визуализаций:
-- **Корреляционная матрица**: помогла наглядно увидеть зависимости между количественными признаками.
-- **График изменения цены для отдельных товаров**: показал изменение `UnitPrice` для конкретного товара со временем, позволяя оценить стабильность цен и выявить возможные колебания.
+We created several key visualizations:
+- **Correlation Matrix**: This visually highlighted relationships between quantitative features.
+- **Price Change Plot for Individual Products**: This showed `UnitPrice` changes for specific items over time, allowing us to assess price stability and identify potential fluctuations.
 
-## Инсайты и предположения
+## Insights and Hypotheses
 
-- **Сильная корреляция `Quantity` и `TotalPrice`**: указывает на прямую зависимость общей стоимости заказа от количества товаров. Данные могут помочь оптимизировать процесс управления запасами и предложить клиентам скидки при покупке большего количества товаров.
-- **Анализ цен**: изменения `UnitPrice` для одного и того же товара могут быть связаны с сезонностью, акциями или изменениями ценовой политики, что важно для маркетинговых стратегий.
-- **Аномалии в данных**: присутствие отрицательных значений может свидетельствовать о возвратах товаров или ошибках в системе учёта, что можно учитывать при расчёте показателей прибыли и убытков.
+- **Strong Correlation Between `Quantity` and `TotalPrice`**: Indicates a direct relationship between order total and quantity. These data could assist in optimizing inventory management and offering discounts for bulk purchases.
+- **Price Analysis**: Variations in `UnitPrice` for the same item may relate to seasonality, promotions, or pricing policy changes, which are important for marketing strategies.
+- **Data Anomalies**: The presence of negative values may indicate product returns or accounting errors, which should be considered when calculating profit and loss metrics.
 
-## Возможные дальнейшие шаги
-# Логический анализ данных и формулирование гипотез
+## Possible Next Steps
+# Logical Analysis and Hypothesis Formulation
 
-## Инсайты и предположения с точки зрения аномалий и логических гипотез
+## Insights and Hypotheses from Anomalies and Logical Analysis
 
-### 1. Сильная корреляция между `Quantity` и `TotalPrice`
-   - **Гипотеза 1**: Увеличение количества купленных товаров может снижать их стоимость из-за предоставляемых скидок. Это можно проверить, сравнив среднюю цену товаров при заказах разного объема.
-   - **Гипотеза 2**: Если `TotalPrice` остается стабильным при увеличении `Quantity`, возможно, товар продается по фиксированной цене независимо от количества. Это может свидетельствовать об использовании постоянных цен, что важно для определения ценовой стратегии.
+### 1. Strong Correlation Between `Quantity` and `TotalPrice`
+   - **Hypothesis 1**: Increasing the number of purchased items may decrease their price due to discounts. This can be tested by comparing the average product price across orders of varying volumes.
+   - **Hypothesis 2**: If `TotalPrice` remains stable despite an increase in `Quantity`, the item might be sold at a fixed price regardless of quantity. This could indicate the use of constant pricing, which is important for pricing strategy decisions.
 
-### 2. Анализ изменений `UnitPrice` для одного товара
-   - **Гипотеза 3**: Временные изменения `UnitPrice` могут отражать сезонные акции, изменение себестоимости или новые маркетинговые стратегии. Если цена на один и тот же продукт колеблется в зависимости от месяца, это может говорить о сезонных распродажах или изменениях спроса.
-   - **Гипотеза 4**: Резкие изменения цены могут указывать на ошибки в учете или некорректные данные. Например, если `UnitPrice` значительно выше или ниже средней цены по группе похожих товаров, это может свидетельствовать о случайных выбросах или ошибках при вводе данных.
+### 2. Analysis of `UnitPrice` Changes for Individual Products
+   - **Hypothesis 3**: Temporal changes in `UnitPrice` may reflect seasonal promotions, cost adjustments, or new marketing strategies. If the price of the same product fluctuates by month, it may indicate seasonal sales or demand shifts.
+   - **Hypothesis 4**: Sharp price changes might point to accounting errors or incorrect data. For instance, if `UnitPrice` is significantly higher or lower than the average price for similar products, it may indicate outliers or data entry errors.
 
-### 3. Аномалии, такие как отрицательные значения `Quantity`
-   - **Гипотеза 5**: Наличие отрицательных значений в `Quantity` может быть связано с возвратами. Эти данные важны для понимания причин возвратов и построения моделей для снижения возвратов в будущем.
-   - **Гипотеза 6**: Если отрицательные значения встречаются для определенных продуктов чаще, чем для других, это может указывать на их низкое качество или несоответствие ожиданиям клиентов. Можно рассмотреть связь между конкретными товарами и частотой возвратов.
+### 3. Anomalies Such as Negative `Quantity` Values
+   - **Hypothesis 5**: Negative values in `Quantity` may be associated with product returns. This information is crucial for understanding return reasons and building models to reduce future returns.
+   - **Hypothesis 6**: If negative values appear more frequently for certain products, this may indicate poor quality or failure to meet customer expectations. We could explore connections between specific products and return frequency.
 
-### 4. Пропуски в данных по `CustomerID`
-   - **Гипотеза 7**: Пропуски в поле `CustomerID` могут свидетельствовать о разовых покупках, где регистрация клиента не обязательна. Это может означать наличие крупной доли анонимных покупателей, что важно для построения клиентских сегментов.
-   - **Гипотеза 8**: Повторяющиеся пропуски `CustomerID` в определенные периоды времени могут указывать на акции, привлекающие новых клиентов, которые еще не зарегистрированы в системе. Можно анализировать, в какие периоды наблюдается увеличение таких покупок и связаны ли они с акциями или сезонными изменениями спроса.
+### 4. Missing `CustomerID` Data
+   - **Hypothesis 7**: Missing `CustomerID` values may indicate one-time purchases where customer registration is not mandatory. This could mean a large portion of anonymous buyers, which is essential for customer segmentation.
+   - **Hypothesis 8**: Recurring `CustomerID` gaps in specific periods may indicate promotions attracting new customers who are not yet registered in the system. We can analyze in which periods these purchases increase and whether they are tied to promotions or seasonal demand shifts.
 
-## Дальнейшие шаги для проверки гипотез
+## Next Steps for Hypothesis Testing
 
-1. **Проверка скидок при увеличении количества товаров**:
-   - Сравнить средние `UnitPrice` для различных значений `Quantity` и выявить закономерности в зависимости цены от количества.
+1. **Testing Discounts with Increasing Quantity**:
+   - Compare average `UnitPrice` for different `Quantity` values and identify price dependencies on order volume.
 
-2. **Анализ сезонности цен**:
-   - Построить временной график изменения `UnitPrice` по месяцам или кварталам и выявить сезонные тренды, если они есть.
+2. **Seasonal Price Trend Analysis**:
+   - Create a time series plot of `UnitPrice` changes by month or quarter to identify seasonal trends, if present.
 
-3. **Выявление причин возвратов**:
-   - Проанализировать товары с отрицательными `Quantity` и выявить причины возвратов по категории товара или бренду, что поможет в улучшении качества товаров.
+3. **Identifying Return Reasons**:
+   - Analyze products with negative `Quantity` values to determine reasons for returns by category or brand, aiding in quality improvement.
 
-4. **Анализ анонимных покупок**:
-   - Исследовать пропуски в `CustomerID` и их зависимость от времени, чтобы понять, какие акции или периоды привлекают наибольшее количество новых и незарегистрированных клиентов.
+4. **Anonymous Purchase Analysis**:
+   - Investigate `CustomerID` gaps and their time-based trends to understand which promotions or periods attract the highest number of new, unregistered customers.
 
-## Заключение
+## Conclusion
 
-Проект демонстрирует возможность глубокого анализа данных о продажах для выявления аномалий, логических гипотез и построения бизнес-инсайтов. Анализ аномальных данных, таких как отрицательные значения и пропуски, позволяет сформулировать гипотезы о поведении клиентов, изменениях спроса и проблемах с качеством товаров.
+This project demonstrates the potential for in-depth sales data analysis to identify anomalies, form logical hypotheses, and generate business insights. Analyzing anomalies, such as negative values and missing data, enables us to formulate hypotheses about customer behavior, demand shifts, and product quality issues.
